@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>صدى نينوى</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #070707;
+    color: #eeeeee;
+    font-family: Tahoma, Arial, sans-serif;
+    min-height: 100vh;
+}
+
+/* ================= HEADER ================= */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(7, 7, 7, 0.95);
+    border-bottom: 1px solid #252525;
+    backdrop-filter: blur(10px);
+}
+
+.nav {
+    max-width: 1150px;
+    margin: auto;
+    padding: 18px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.logo {
+    cursor: pointer;
+    font-size: 26px;
+    font-weight: bold;
+    color: #d8b45a;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: #8d1b1b;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+
+.nav-buttons button {
+    background: transparent;
+    border: 0;
+    color: #cfcfcf;
+    padding: 9px 13px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.nav-buttons button:hover {
+    background: #191919;
+    color: #d8b45a;
+}
+
+/* ================= PAGES ================= */
+
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+
+.container {
+    width: 92%;
+    max-width: 1150px;
+    margin: auto;
+    padding: 55px 0;
+}
+
+/* ================= HERO ================= */
+
+.hero {
+    min-height: 650px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 50% 35%, #382a13 0%, #171108 18%, #070707 58%);
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    border: 1px solid rgba(216,180,90,0.12);
+    border-radius: 50%;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    width: 650px;
+    height: 650px;
+    border: 1px solid rgba(141,27,27,0.10);
+    border-radius: 50%;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+}
+
+.hero-small {
+    color: #9d9d9d;
+    font-size: 14px;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: 65px;
+    color: #d8b45a;
+    margin-bottom: 10px;
+    text-shadow: 0 0 35px rgba(216,180,90,0.12);
+}
+
+.hero h2 {
+    font-size: 23px;
+    color: #eeeeee;
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    color: #8e8e8e;
+    line-height: 2;
+    margin-bottom: 30px;
+}
+
+.gold-button {
+    border: 0;
+    background: linear-gradient(135deg, #d8b45a, #a9822e);
+    color: #0a0a0a;
+    padding: 13px 28px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 15px;
+    box-shadow: 0 10px 30px rgba(216,180,90,0.12);
+}
+
+.gold-button:hover {
+    transform: translateY(-2px);
+}
+
+/* ================= TITLES ================= */
+
+.section-title {
+    text-align: center;
+    color: #d8b45a;
+    font-size: 31px;
+    margin-bottom: 12px;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #777;
+    margin-bottom: 35px;
+}
+
+/* ================= EMPTY ================= */
+
+.empty {
+    text-align: center;
+    border: 1px dashed #303030;
+    background: #0e0e0e;
+    border-radius: 15px;
+    padding: 60px 20px;
+    color: #666;
+}
+
+.empty-icon {
+    font-size: 45px;
+    margin-bottom: 15px;
+}
+
+.empty h3 {
+    color: #999;
+    margin-bottom: 8px;
+}
+
+/* ================= CARDS ================= */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.card {
+    background: linear-gradient(145deg, #151515, #0d0d0d);
+    border: 1px solid #252525;
+    border-radius: 15px;
+    padding: 24px;
+    transition: 0.25s;
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 3px;
+    height: 100%;
+    background: #8d1b1b;
+    opacity: 0.7;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    border-color: #6d5726;
+}
+
+.card h3 {
+    color: #d8b45a;
+    margin-bottom: 8px;
+}
+
+.card p {
+    color: #999;
+    font-size: 14px;
+}
+
+.card-button {
+    margin-top: 18px;
+    background: #1c1c1c;
+    border: 1px solid #333;
+    color: #ddd;
+    padding: 9px 15px;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+.card-button:hover {
+    border-color: #d8b45a;
+    color: #d8b45a;
+}
+
+/* ================= SEARCH ================= */
+
+.search {
+    width: 100%;
+    background: #101010;
+    color: white;
+    border: 1px solid #292929;
+    border-radius: 10px;
+    padding: 15px;
+    outline: none;
+    font-size: 15px;
+    margin-bottom: 30px;
+}
+
+.search:focus {
+    border-color: #8d6c27;
+}
+
+/* ================= ADD ================= */
+
+.add-box {
+    max-width: 700px;
+    margin: auto;
+    background: linear-gradient(145deg, #151515, #0c0c0c);
+    border: 1px solid #292929;
+    border-radius: 18px;
+    padding: 30px;
+}
+
+.form-title {
+    color: #d8b45a;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+label {
+    display: block;
+    color: #999;
+    margin-bottom: 7px;
+    margin-top: 17px;
+    font-size: 14px;
+}
+
+input,
+textarea,
+select {
+    width: 100%;
+    background: #090909;
+    color: white;
+    border: 1px solid #292929;
+    border-radius: 8px;
+    padding: 13px;
+    outline: none;
+    font-family: inherit;
+}
+
+textarea {
+    min-height: 180px;
+    resize: vertical;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: #a17d2e;
+}
+
+.form-button {
+    width: 100%;
+    margin-top: 25px;
+}
+
+/* ================= POEM ================= */
+
+.poem-box {
+    max-width: 800px;
+    margin: auto;
+}
+
+.back {
+    background: #171717;
+    border: 1px solid #292929;
+    color: #aaa;
+    padding: 9px 15px;
+    border-radius: 7px;
+    cursor: pointer;
+    margin-bottom: 25px;
+}
+
+.back:hover {
+    color: #d8b45a;
+}
+
+.poem-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.poem-header h1 {
+    color: #d8b45a;
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+.poem-header p {
+    color: #777;
+}
+
+.poem-text {
+    background: #101010;
+    border: 1px solid #292929;
+    border-radius: 15px;
+    padding: 35px;
+    text-align: center;
+    white-space: pre-line;
+    line-height: 2.4;
+    font-size: 20px;
+}
+
+/* ================= FOOTER ================= */
+
+footer {
+    border-top: 1px solid #222;
+    background: #0b0b0b;
+    text-align: center;
+    padding: 35px 20px;
+    color: #666;
+}
+
+footer strong {
+    color: #d8b45a;
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 800px) {
+
+    .nav {
+        flex-direction: column;
+    }
+
+    .nav-buttons {
+        justify-content: center;
+    }
+
+    .hero {
+        min-height: 570px;
+    }
+
+    .hero h1 {
+        font-size: 45px;
+    }
+
+    .hero h2 {
+        font-size: 19px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .container {
+        width: 90%;
+        padding: 40px 0;
+    }
+
+    .poem-text {
+        padding: 23px;
+        font-size: 18px;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+    <div class="nav">
+
+        <div class="logo" onclick="showPage('home')">
+            صدى <span>نينوى</span>
+        </div>
+
+        <div class="nav-buttons">
+
+            <button onclick="showPage('home')">
+                الرئيسية
+            </button>
+
+            <button onclick="showPage('reciters')">
+                الرواديد
+            </button>
+
+            <button onclick="showPage('poems')">
+                اللطميات
+            </button>
+
+            <button onclick="showPage('add')">
+                + إضافة
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- ================= HOME ================= -->
+
+<main id="home" class="page active">
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="hero-small">
+                مَكتبةٌ حُسينيّة
+            </div>
+
+            <h1>صدى نينوى</h1>
+
+            <h2>
+                صوتٌ يبقى... وأثرٌ لا يزول
+            </h2>
+
+            <p>
+                مكتبة للقصائد واللطميات الحسينية،
+                تجمع الكلمات وتحفظها في مكان واحد.
+            </p>
+
+            <button
+                class="gold-button"
+                onclick="showPage('poems')">
+
+                تصفح اللطميات
+
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <section class="container">
+
+        <h2 class="section-title">
+            أحدث اللطميات
+        </h2>
+
+        <p class="section-subtitle">
+            القصائد التي أضفتها إلى مكتبتك
+        </p>
+
+        <div id="homePoems"></div>
+
+    </section>
+
+</main>
+
+
+<!-- ================= RECITERS ================= -->
+
+<main id="reciters" class="page">
+
+    <section class="container">
+
+        <h2 class="section-title">
+            الرواديد
+        </h2>
+
+        <p class="section-subtitle">
+            اختر الرادود للوصول إلى قصائده
+        </p>
+
+        <div id="recitersList"></div>
+
+    </section>
+
+</main>
+
+
+<!-- ================= POEMS ================= -->
+
+<main id="poems" class="page">
+
+    <section class="container">
+
+        <h2 class="section-title">
+            اللطميات
+        </h2>
+
+        <p class="section-subtitle">
+            مكتبتك الخاصة
+        </p>
+
+        <input
+            id="search"
+            class="search"
+            type="text"
+            placeholder="ابحث عن لطميّة أو رادود..."
+            oninput="searchPoems()"
+        >
+
+        <div id="poemsList"></div>
+
+    </section>
+
+</main>
+
+
+<!-- ================= ADD ================= -->
+
+<main id="add" class="page">
+
+    <section class="container">
+
+        <h2 class="section-title">
+            إضافة إلى المكتبة
+        </h2>
+
+        <p class="section-subtitle">
+            أضف الرادود واللطميّة بنفسك
+        </p>
+
+
+        <div class="add-box">
+
+            <div class="form-title">
+                إضافة لطميّة جديدة
+            </div>
+
+            <label>
+                اسم اللطميّة
+            </label>
+
+            <input
+                id="newTitle"
+                type="text"
+                placeholder="اكتب اسم اللطميّة"
+            >
+
+
+            <label>
+                اسم الرادود
+            </label>
+
+            <input
+                id="newReciter"
+                type="text"
+                placeholder="اكتب اسم الرادود"
+            >
+
+
+            <label>
+                المناسبة
+            </label>
+
+            <input
+                id="newOccasion"
+                type="text"
+                placeholder="مثلاً: عاشوراء"
+            >
+
+
+            <label>
+                كلمات اللطميّة
+            </label>
+
+            <textarea
+                id="newText"
+                placeholder="اكتب كلمات اللطميّة هنا..."
+            ></textarea>
+
+
+            <button
+                class="gold-button form-button"
+                onclick="addPoem()">
+
+                إضافة اللطميّة
+
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- ================= POEM PAGE ================= -->
+
+<main id="poemPage" class="page">
+
+    <section class="container">
+
+        <div class="poem-box">
+
+            <button
+                class="back"
+                onclick="showPage('poems')">
+
+                ← العودة
+
+            </button>
+
+
+            <div class="poem-header">
+
+                <h1 id="poemTitle"></h1>
+
+                <p id="poemInfo"></p>
+
+            </div>
+
+
+            <div
+                id="poemText"
+                class="poem-text">
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <p>
+        <strong>صدى نينوى</strong>
+    </p>
+
+    <p>
+        مكتبة القصائد واللطميات الحسينية
+    </p>
+
+</footer>
+
+
+<script>
+
+/* ==========================================
+   البيانات
+   بالبداية فاضية تماماً
+========================================== */
+
+var reciters = [];
+var poems = [];
+
+
+/* ==========================================
+   تحميل البيانات المحفوظة
+========================================== */
+
+var savedReciters = localStorage.getItem("sada_ninawa_reciters");
+var savedPoems = localStorage.getItem("sada_ninawa_poems");
+
+if (savedReciters) {
+    reciters = JSON.parse(savedReciters);
+}
+
+if (savedPoems) {
+    poems = JSON.parse(savedPoems);
+}
+
+
+/* ==========================================
+   تغيير الصفحة
+========================================== */
+
+function showPage(id) {
+
+    var pages = document.querySelectorAll(".page");
+
+    for (var i = 0; i < pages.length; i++) {
+        pages[i].classList.remove("active");
+    }
+
+    var selected = document.getElementById(id);
+
+    if (selected) {
+        selected.classList.add("active");
+    }
+
+    window.scrollTo(0, 0);
+
+    renderAll();
+}
+
+
+/* ==========================================
+   حفظ البيانات
+========================================== */
+
+function saveData() {
+
+    localStorage.setItem(
+        "sada_ninawa_reciters",
+        JSON.stringify(reciters)
+    );
+
+    localStorage.setItem(
+        "sada_ninawa_poems",
+        JSON.stringify(poems)
+    );
+}
+
+
+/* ==========================================
+   إضافة لطميّة
+========================================== */
+
+function addPoem() {
+
+    var title =
+        document.getElementById("newTitle").value.trim();
+
+    var reciter =
+        document.getElementById("newReciter").value.trim();
+
+    var occasion =
+        document.getElementById("newOccasion").value.trim();
+
+    var text =
+        document.getElementById("newText").value.trim();
+
+
+    if (
+        title === "" ||
+        reciter === "" ||
+        text === ""
+    ) {
+
+        alert("املأ اسم اللطميّة والرادود والكلمات.");
+
+        return;
+    }
+
+
+    var newPoem = {
+
+        id: Date.now(),
+
+        title: title,
+
+        reciter: reciter,
+
+        occasion:
+            occasion === ""
+            ? "غير محددة"
+            : occasion,
+
+        text: text
+
+    };
+
+
+    poems.push(newPoem);
+
+
+    /* إضافة الرادود تلقائياً */
+
+    if (reciters.indexOf(reciter) === -1) {
+        reciters.push(reciter);
+    }
+
+
+    saveData();
+
+
+    document.getElementById("newTitle").value = "";
+    document.getElementById("newReciter").value = "";
+    document.getElementById("newOccasion").value = "";
+    document.getElementById("newText").value = "";
+
+
+    alert("تمت إضافة اللطميّة بنجاح.");
+
+
+    renderAll();
+
+    showPage("poems");
+}
+
+
+/* ==========================================
+   بطاقة لطميّة
+========================================== */
+
+function poemCard(poem) {
+
+    return (
+
+        '<div class="card">' +
+
+            '<h3>' +
+                poem.title +
+            '</h3>' +
+
+            '<p>' +
+                poem.reciter +
+            '</p>' +
+
+            '<p>' +
+                poem.occasion +
+            '</p>' +
+
+            '<button ' +
+                'class="card-button" ' +
+                'onclick="openPoem(' +
+                    poem.id +
+                ')">' +
+
+                'قراءة اللطميّة' +
+
+            '</button>' +
+
+        '</div>'
+
+    );
+}
+
+
+/* ==========================================
+   عرض القصائد
+========================================== */
+
+function renderPoems(list) {
+
+    var box =
+        document.getElementById("poemsList");
+
+
+    if (list.length === 0) {
+
+        box.innerHTML =
+
+            '<div class="empty">' +
+
+                '<div class="empty-icon">📜</div>' +
+
+                '<h3>المكتبة فارغة</h3>' +
+
+                '<p>' +
+                    'لم تضف أي لطميّة بعد.' +
+                '</p>' +
+
+            '</div>';
+
+        return;
+    }
+
+
+    var html = "";
+
+
+    for (var i = 0; i < list.length; i++) {
+
+        html += poemCard(list[i]);
+
+    }
+
+
+    box.innerHTML = html;
+}
+
+
+/* ==========================================
+   الصفحة الرئيسية
+========================================== */
+
+function renderHome() {
+
+    var box =
+        document.getElementById("homePoems");
+
+
+    if (poems.length === 0) {
+
+        box.innerHTML =
+
+            '<div class="empty">' +
+
+                '<div class="empty-icon">🕯</div>' +
+
+                '<h3>لا توجد لطميات بعد</h3>' +
+
+                '<p>' +
+                    'ابدأ بإضافة أول لطميّة من قسم الإضافة.' +
+                '</p>' +
+
+            '</div>';
+
+        return;
+    }
+
+
+    var html = "";
+
+
+    var number =
+        Math.min(poems.length, 3);
+
+
+    for (var i = 0; i < number; i++) {
+
+        html += poemCard(poems[i]);
+
+    }
+
+
+    box.innerHTML =
+        '<div class="cards">' +
+            html +
+        '</div>';
+}
+
+
+/* ==========================================
+   الرواديد
+========================================== */
+
+function renderReciters() {
+
+    var box =
+        document.getElementById("recitersList");
+
+
+    if (reciters.length === 0) {
+
+        box.innerHTML =
+
+            '<div class="empty">' +
+
+                '<div class="empty-icon">🎙</div>' +
+
+                '<h3>لا يوجد رواديد بعد</h3>' +
+
+                '<p>' +
+                    'عندما تضيف أول لطميّة سيظهر الرادود هنا.' +
+                '</p>' +
+
+            '</div>';
+
+        return;
+    }
+
+
+    var html = "";
+
+
+    for (var i = 0; i < reciters.length; i++) {
+
+        var name = reciters[i];
+
+        var count = 0;
+
+
+        for (var j = 0; j < poems.length; j++) {
+
+            if (poems[j].reciter === name) {
+                count++;
+            }
+
+        }
+
+
+        html +=
+
+            '<div class="card">' +
+
+                '<h3>' +
+                    name +
+                '</h3>' +
+
+                '<p>' +
+                    count +
+                    ' لطميّة' +
+                '</p>' +
+
+                '<button ' +
+                    'class="card-button" ' +
+                    'onclick="showReciter(\'' +
+                        name.replace(/'/g, "\\'") +
+                    '\')">' +
+
+                    'عرض اللطميات' +
+
+                '</button>' +
+
+            '</div>';
+    }
+
+
+    box.innerHTML =
+        '<div class="cards">' +
+            html +
+        '</div>';
+}
+
+
+/* ==========================================
+   عرض لطميات رادود
+========================================== */
+
+function showReciter(name) {
+
+    var result = [];
+
+
+    for (var i = 0; i < poems.length; i++) {
+
+        if (poems[i].reciter === name) {
+
+            result.push(poems[i]);
+
+        }
+
+    }
+
+
+    renderPoems(result);
+
+    showPage("poems");
+}
+
+
+/* ==========================================
+   البحث
+========================================== */
+
+function searchPoems() {
+
+    var value =
+        document
+        .getElementById("search")
+        .value
+        .toLowerCase()
+        .trim();
+
+
+    if (value === "") {
+
+        renderPoems(poems);
+
+        return;
+    }
+
+
+    var result = [];
+
+
+    for (var i = 0; i < poems.length; i++) {
+
+        var poem = poems[i];
+
+
+        if (
+
+            poem.title
+            .toLowerCase()
+            .indexOf(value) !== -1
+
+            ||
+
+            poem.reciter
+            .toLowerCase()
+            .indexOf(value) !== -1
+
+            ||
+
+            poem.occasion
+            .toLowerCase()
+            .indexOf(value) !== -1
+
+        ) {
+
+            result.push(poem);
+
+        }
+
+    }
+
+
+    renderPoems(result);
+}
+
+
+/* ==========================================
+   فتح لطميّة
+========================================== */
+
+function openPoem(id) {
+
+    var poem = null;
+
+
+    for (var i = 0; i < poems.length; i++) {
+
+        if (poems[i].id === id) {
+
+            poem = poems[i];
+
+            break;
+        }
+
+    }
+
+
+    if (!poem) {
+        return;
+    }
+
+
+    document.getElementById("poemTitle").textContent =
+        poem.title;
+
+
+    document.getElementById("poemInfo").textContent =
+        "الرادود: " +
+        poem.reciter +
+        "  •  " +
+        poem.occasion;
+
+
+    document.getElementById("poemText").textContent =
+        poem.text;
+
+
+    showPage("poemPage");
+}
+
+
+/* ==========================================
+   تحديث كل شيء
+========================================== */
+
+function renderAll() {
+
+    renderHome();
+
+    renderReciters();
+
+    renderPoems(poems);
+}
+
+renderAll();
+
+</script>
+
+</body>
+</html>
